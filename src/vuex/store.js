@@ -8,11 +8,11 @@ const state = {
 
 
 const mutations = {
-	add(state){
-		state.count++;
+	add(state,n){
+		state.count+=n;
 	},
-	reduce(state){
-		state.count--;
+	reduce(state,n){
+		state.count-=n;
 	}
 }
 

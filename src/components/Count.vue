@@ -7,6 +7,9 @@
 		<p>
 			<button @click="$store.commit('add',10)">+</button>
 			<button @click="reduce(2)">-</button>
+			<hr/>	
+			<button @click="addAction">+</button>
+			<button @click="reduceAction">-</button>
 		</p>
 
 	</div>
@@ -16,7 +19,7 @@
 <script>
 	
 import store from '@/vuex/store'	
-import { mapState,mapMutations,mapGetters } from 'vuex'	
+import { mapState,mapMutations,mapGetters,mapActions } from 'vuex'	
 export default { 
 	data(){
 		return {
@@ -28,9 +31,15 @@ export default {
 		// count(){
 		// 	return this.$store.getters.count;
 		// }
-		...mapGetters(['count'])
+		// ...mapGetters(['count'])
+
 	},
-	methods: mapMutations(['add','reduce']),
+	// methods: mapMutations(['add','reduce']),
+	methods: {
+		...mapMutations(['add','reduce']),
+		...mapActions(['addAction','reduceAction'])
+	},
+
 	store
 }
 
@@ -77,6 +86,14 @@ getters计算过滤属性 相当于 store仓库的computed  state每操作一次
 
 2.	简写 引入mapGetters
 	...mapGetters(['count'])
+
+
+
+---------------------------------------------------------------------------
+
+1.	异步Action
+	简写 引入mapActions
+	...mapActions(['addAction','reduceAction'])
 
 
 

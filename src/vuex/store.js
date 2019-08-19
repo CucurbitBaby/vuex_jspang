@@ -34,9 +34,15 @@ const actions = {
 	}
 }
 
+
+const moduleA = {
+	state,mutations,getters,actions
+}
+
+// const moduleB = {
+// 	state,mutations,getters,actions
+// }
+
 export default new Vuex.Store({
-	state,
-	mutations,
-	getters,
-	actions
+	modules:{a:moduleA}
 })

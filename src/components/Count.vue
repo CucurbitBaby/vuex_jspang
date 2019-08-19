@@ -2,7 +2,9 @@
 	<div>
 		<h2>{{ msg }}</h2>
 		<hr />
-		<h3>{{ count }}</h3>
+		<!-- <h3>{{ count }}</h3> -->
+		<h3>{{ $store.state.a.count }}  ----  {{ count }}</h3>
+
 
 		<p>
 			<button @click="$store.commit('add',10)">+</button>
@@ -27,12 +29,14 @@ export default {
 		}
 	},
 	computed:{
-		...mapState(['count']),
+		// ...mapState(['count']),
 		// count(){
 		// 	return this.$store.getters.count;
 		// }
 		// ...mapGetters(['count'])
-
+		count(){
+			return this.$store.state.a.count;
+		}
 	},
 	// methods: mapMutations(['add','reduce']),
 	methods: {
@@ -91,11 +95,22 @@ getters计算过滤属性 相当于 store仓库的computed  state每操作一次
 
 ---------------------------------------------------------------------------
 
+
 1.	异步Action
 	简写 引入mapActions
 	...mapActions(['addAction','reduceAction'])
 
 
+
+
+---------------------------------------------------------------------------
+
+1.  模块组
+  	如要简写 {{ count }}
+  	computed 就这样：
+		  	count(){
+					return this.$store.state.a.count;
+				}
 
 
 */
